@@ -50,7 +50,7 @@ fun AnimatedBorderCard(
         shape = shape
     ) {
         Surface(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(borderWidth)
                 .drawWithContent {
