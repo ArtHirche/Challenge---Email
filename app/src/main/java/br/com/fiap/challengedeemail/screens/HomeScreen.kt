@@ -21,6 +21,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.DividerDefaults.color
@@ -32,9 +33,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -58,9 +61,6 @@ import br.com.fiap.challengedeemail.ui.theme.Blue900
 fun HomeScreen(){
 
 
-    var username by remember { mutableStateOf("")}
-    var password by remember { mutableStateOf("")}
-    var rememberMeCheck by remember { mutableStateOf(false)}
 
     Column(
         modifier = Modifier
@@ -104,7 +104,7 @@ fun HomeScreen(){
             }
             Spacer(modifier = Modifier.padding(7.dp))
             Text(
-                text = stringResource(id = R.string.app_name),
+                text = "Inbox Overview",
                 fontSize = 28.sp,
                 fontFamily = FontFamily.Monospace,
                 color = Color.White,
@@ -142,12 +142,40 @@ fun HomeScreen(){
 
 @Composable
 fun PrincipalEmail(){
-    Row (){
+    Row (modifier = Modifier.shadow(elevation = 50.dp,
+        shape = RectangleShape,
+        clip = false,
+        spotColor = Color.Black,
+        ambientColor = Color.Black),
+        ){
         Card (modifier = Modifier
             .height(170.dp)
             .padding(10.dp)
-            .fillMaxWidth()){
-            EmailCard()
+            .fillMaxWidth()
+            .shadow(
+                elevation = 50.dp,
+                shape = RectangleShape,
+                clip = false,
+                spotColor = Color.Black,
+                ambientColor = Color.Black
+            ),
+            elevation = CardDefaults.cardElevation(50.dp)){
+            Column (verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(25.dp)
+                    .padding(top = 5.dp)){
+                Text(text = "Top emails", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            }
+            Column (verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()){
+                EmailCard()
+            }
+
         }
 
     }
@@ -157,15 +185,58 @@ fun KPIs () {
     Row(modifier = Modifier.padding(10.dp)) {
         Card (modifier = Modifier
             .height(170.dp)
-            .width(175.dp)){
+            .width(175.dp)
+            .shadow(
+                elevation = 50.dp,
+                shape = RectangleShape,
+                clip = false,
+                spotColor = Color.Black,
+                ambientColor = Color.Black
+            )
+            ){
 
-
-
+                Column (verticalArrangement = Arrangement.Top,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(25.dp)
+                            .padding(top = 5.dp)){
+                    Text(text = "Emails received", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                }
+                Column (verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()){
+                    Text(text = "16", fontSize = 60.sp)
+                }
         }
         Spacer(modifier = Modifier.padding(8.dp))
         Card (modifier = Modifier
             .height(170.dp)
-            .width(175.dp)){
+            .width(175.dp)
+            .shadow(
+                elevation = 50.dp,
+                shape = RectangleShape,
+                clip = false,
+                spotColor = Color.Black,
+                ambientColor = Color.Black
+            )){
+            Column (verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(25.dp)
+                    .padding(top = 5.dp)){
+                Text(text = "Next meeting", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            }
+            Column (verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()){
+                MeetCard()
+            }
 
         }
     }
@@ -176,8 +247,29 @@ fun FavoriteNews(){
         Card (modifier = Modifier
             .height(170.dp)
             .padding(10.dp)
-            .fillMaxWidth()){
-            NewsCardRow()
+            .fillMaxWidth()
+            .shadow(
+                elevation = 50.dp,
+                shape = RectangleShape,
+                clip = false,
+                spotColor = Color.Black,
+                ambientColor = Color.Black
+            )){
+            Column (verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(25.dp)
+                    .padding(top = 5.dp)){
+                Text(text = "Best news according to your top searches", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+            }
+            Column (verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()){
+                NewsCardRow()
+            }
         }
 
     }
@@ -208,7 +300,6 @@ fun EmailCard() {
 
     Card(
         shape = RoundedCornerShape(8.dp),
-        elevation = CardDefaults.cardElevation(4.dp),
         modifier = Modifier
             .fillMaxWidth()
     ) {
@@ -229,16 +320,16 @@ fun EmailItem(email: EmailData) {
         Text(
             text = email.sender,
             fontWeight = FontWeight.Bold,
-            fontSize = 7.sp
+            fontSize = 6.sp
         )
         Text(
             text = email.subject,
             fontWeight = FontWeight.Medium,
-            fontSize = 10.sp
+            fontSize = 8.sp
         )
         Text(
             text = email.preview,
-            fontSize = 6.sp,
+            fontSize = 5.sp,
             maxLines = 1
         )
         Row(
@@ -247,7 +338,7 @@ fun EmailItem(email: EmailData) {
         ) {
             Text(
                 text = email.time,
-                fontSize = 8.sp
+                fontSize = 6.sp
             )
         }
     }
@@ -263,16 +354,18 @@ data class EmailData(
 fun NewsCardRow() {
     val newsList = listOf(
         NewsData(
-            title = "Nova tecnologia revoluciona o mercado",
-            description = "Descubra como a nova IA está transformando indústrias.",
+            title = "New technology revolutionizes the market",
+            description = "Discover how the new AI is transforming industries.",
             time = "10:00",
-            imageUrl = "https://www.fiap.com.br/e-images/2024/mba/lembrete-live/header.png"
+            imageUrl = "https://www.fiap.com.br/e-images/2024/mba/reminder-live/header.png",
+            url = R.drawable.tec
         ),
         NewsData(
-            title = "Avanços em energia renovável",
-            description = "Como os novos métodos estão melhorando a eficiência energética.",
+            title = "Advancements in renewable energy",
+            description = "How new methods are enhancing energy efficiency.",
             time = "12:30",
-            imageUrl = "https://www.fiap.com.br/e-images/2024/mba/lembrete-live/header.png"
+            imageUrl = "https://www.fiap.com.br/e-images/2024/mba/reminder-live/header.png",
+            url = R.drawable.tec1
         ),
     )
 
@@ -290,29 +383,37 @@ fun NewsCardRow() {
 
 @Composable
 fun NewsItem(news: NewsData) {
+
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(4.dp),
         modifier = Modifier
             .padding(8.dp)
             .height(150.dp)
-            .width(160.dp)
-    ) {
+            .width(160.dp), colors = CardDefaults.cardColors(Blue500)) {
         Column(
             modifier = Modifier.padding(8.dp)
         ) {
+            Image(
+                painter = painterResource(id= news.url),
+                contentDescription = null,
+                modifier = Modifier
+                    .height(50.dp)
+                    .fillMaxWidth(),
+                contentScale = ContentScale.Crop
+            )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = news.title,
                 fontWeight = FontWeight.Bold,
-                fontSize = 10.sp,
+                fontSize = 9.sp,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = news.description,
-                fontSize = 9.sp,
+                fontSize = 8.sp,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
             )
@@ -323,7 +424,7 @@ fun NewsItem(news: NewsData) {
             ) {
                 Text(
                     text = news.time,
-                    fontSize = 15.sp
+                    fontSize = 8.sp
                 )
             }
         }
@@ -334,5 +435,86 @@ data class NewsData(
     val title: String,
     val description: String,
     val time: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val url: Int
+)
+@Composable
+fun MeetCard() {
+    val newsList = listOf(
+        MeetData(
+            title = "Sprint Planning",
+            description = "Discover how the new AI is transforming industries.",
+            time = "9:00",
+            organizador = "Organizador: Nathan Oliveira Pinho",
+            local = "FIAP - Polo São Paulo"
+        ),
+
+    )
+
+    Row(
+        modifier = Modifier
+            .padding(5.dp)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        newsList.forEach { meet ->
+            Meeting(meet = meet)
+        }
+    }
+}
+
+@Composable
+fun Meeting(meet: MeetData) {
+
+    Card(
+        shape = RoundedCornerShape(8.dp),
+        elevation = CardDefaults.cardElevation(4.dp),
+        modifier = Modifier
+            .padding(8.dp)
+            .height(150.dp)
+            .width(160.dp),colors = CardDefaults.cardColors(Blue500)
+    ) {
+        Column(
+            modifier = Modifier.padding(8.dp)
+        ) {
+            Spacer(modifier = Modifier.height(2.dp))
+            Text(
+                text = meet.title,
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "\uD83D\uDD52 ${meet.time}",
+                fontSize = 11.sp,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "\uD83D\uDCCD ${meet.local}",
+                fontSize = 11.sp,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = meet.organizador,
+                fontSize = 8.sp,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+
+        }
+    }
+}
+
+data class MeetData(
+    val title: String,
+    val description: String,
+    val time: String,
+    val organizador: String,
+    var local: String
 )
