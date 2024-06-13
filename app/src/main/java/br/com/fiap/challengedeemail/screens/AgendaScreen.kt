@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.challengedeemail.R
 import br.com.fiap.challengedeemail.agenda.theme.Blue200
 import br.com.fiap.challengedeemail.agenda.theme.Blue500
@@ -29,7 +30,7 @@ import com.pandaways.mycalendar.ui.CalendarApp
 import java.time.LocalDate
 
 @Composable
-fun Agenda(){
+fun Agenda(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()

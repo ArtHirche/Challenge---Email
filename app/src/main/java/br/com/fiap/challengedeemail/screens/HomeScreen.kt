@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.challengedeemail.R
 import br.com.fiap.challengedeemail.components.AnimatedBorderCard
 import br.com.fiap.challengedeemail.agenda.theme.Blue200
@@ -39,7 +40,7 @@ import br.com.fiap.challengedeemail.agenda.theme.Blue500
 import br.com.fiap.challengedeemail.agenda.theme.Blue900
 
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
 
 
 
@@ -65,7 +66,7 @@ fun HomeScreen(){
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = { navController.navigate("menu") }) {
                 Text(
                     text = "X",
                     fontSize = 36.sp,

@@ -34,6 +34,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.challengedeemail.R
 import br.com.fiap.challengedeemail.components.AnimatedBorderCard
 import br.com.fiap.challengedeemail.components.TextFieldCustom
@@ -42,7 +43,7 @@ import br.com.fiap.challengedeemail.agenda.theme.Blue500
 import br.com.fiap.challengedeemail.agenda.theme.Blue900
 
 @Composable
-fun FormLogin(){
+fun FormLogin(navController: NavController){
 
 
     var username by remember { mutableStateOf("")}
@@ -162,6 +163,7 @@ fun FormLogin(){
                 
                 Button(
                     onClick = {
+                              navController.navigate("home")
 
                     },
                     modifier = Modifier
@@ -187,8 +189,3 @@ fun FormLogin(){
     }
 }
 
-@Composable
-@Preview
-private fun FormLoginPreview(){
-    FormLogin()
-}

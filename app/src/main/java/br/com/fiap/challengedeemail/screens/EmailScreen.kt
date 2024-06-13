@@ -39,12 +39,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.challengedeemail.R
 import br.com.fiap.challengedeemail.agenda.theme.Blue900
 
 
 @Composable
-fun EmailScreen() {
+fun EmailScreen(navController: NavController) {
 
     var pesquisa by remember {
         mutableStateOf("")
@@ -68,6 +69,7 @@ fun EmailScreen() {
 
             Button(
                 onClick = {
+                          navController.navigate("menu")
 
                 },
                 modifier = Modifier.size(70.dp),
@@ -186,8 +188,3 @@ fun EmailScreen() {
 
 }
 
-@Composable
-@Preview
-private fun EmailScreenPreview(){
-    EmailScreen()
-}

@@ -25,13 +25,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.challengedeemail.R
 import br.com.fiap.challengedeemail.agenda.theme.Blue200
 import br.com.fiap.challengedeemail.agenda.theme.Blue500
 import br.com.fiap.challengedeemail.agenda.theme.Blue900
 
 @Composable
-fun OptionsEmailScreen() {
+fun OptionsEmailScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -70,6 +71,7 @@ fun OptionsEmailScreen() {
 
         Button(
             onClick = {
+                navController.navigate("home")
 
             },
             modifier = Modifier
@@ -99,11 +101,11 @@ fun OptionsEmailScreen() {
 
         Button(
             onClick = {
+                navController.navigate("calendar")
 
             },
             modifier = Modifier
-                .fillMaxWidth()
-            ,
+                .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Blue900,
                 contentColor = Color.White
@@ -117,7 +119,7 @@ fun OptionsEmailScreen() {
                     modifier = Modifier.size(35.dp)
                 )
                 Text(
-                    text = "Spam",
+                    text = "Calendario",
                     fontSize = 18.sp,
                     modifier = Modifier.padding(start = 20.dp)
                 )
@@ -128,7 +130,7 @@ fun OptionsEmailScreen() {
 
         Button(
             onClick = {
-
+    navController.navigate("agenda")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -146,7 +148,7 @@ fun OptionsEmailScreen() {
                     modifier = Modifier.size(35.dp)
                 )
                 Text(
-                    text = "Com Estrela",
+                    text = "Agenda",
                     fontSize = 18.sp,
                     modifier = Modifier.padding(start = 20.dp)
                 )
@@ -157,6 +159,7 @@ fun OptionsEmailScreen() {
 
         Button(
             onClick = {
+                navController.navigate("emaillist")
 
             },
             modifier = Modifier
@@ -171,7 +174,7 @@ fun OptionsEmailScreen() {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     painter = painterResource(id = R.drawable.baseline_send_24),
-                    contentDescription = "Enviados",
+                    contentDescription = "Recebidos",
                     modifier = Modifier.size(35.dp)
                 )
                 Text(
