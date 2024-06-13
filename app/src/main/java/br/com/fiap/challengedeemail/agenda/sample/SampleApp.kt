@@ -20,16 +20,6 @@ import androidx.compose.ui.unit.dp
 import br.com.fiap.challengedeemail.R
 import com.pandaways.mycalendar.ui.theme.MyCalendarTheme
 
-/**
- * Created by meyta.taliti on 20/05/23.
- */
-@Preview
-@Composable
-fun MyAppPreview() {
-    MyCalendarTheme {
-        SampleApp(Modifier.fillMaxSize())
-    }
-}
 
 @Composable
 fun SampleApp(modifier: Modifier = Modifier) {

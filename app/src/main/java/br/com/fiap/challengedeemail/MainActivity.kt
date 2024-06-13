@@ -19,14 +19,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyCalendarTheme {
-                CalendarApp(
-                    modifier = Modifier.padding(16.dp)
-                )
+            FormLogin()
             }
         }
     }
-}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {

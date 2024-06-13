@@ -1,4 +1,4 @@
-package br.com.fiap.challengedeemail.ui.theme
+package br.com.fiap.challengedeemail.agenda.theme
 
 import androidx.compose.ui.graphics.Color
 

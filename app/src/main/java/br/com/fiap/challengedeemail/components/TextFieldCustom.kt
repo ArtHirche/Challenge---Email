@@ -18,7 +18,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import br.com.fiap.challengedeemail.R
-import br.com.fiap.challengedeemail.ui.theme.Blue900
+import br.com.fiap.challengedeemail.agenda.theme.Blue900
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

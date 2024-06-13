@@ -1,6 +1,5 @@
 package br.com.fiap.challengedeemail.screens
 
-import android.graphics.Paint.Style
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,7 +24,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -39,9 +37,9 @@ import androidx.compose.ui.unit.sp
 import br.com.fiap.challengedeemail.R
 import br.com.fiap.challengedeemail.components.AnimatedBorderCard
 import br.com.fiap.challengedeemail.components.TextFieldCustom
-import br.com.fiap.challengedeemail.ui.theme.Blue200
-import br.com.fiap.challengedeemail.ui.theme.Blue500
-import br.com.fiap.challengedeemail.ui.theme.Blue900
+import br.com.fiap.challengedeemail.agenda.theme.Blue200
+import br.com.fiap.challengedeemail.agenda.theme.Blue500
+import br.com.fiap.challengedeemail.agenda.theme.Blue900
 
 @Composable
 fun FormLogin(){

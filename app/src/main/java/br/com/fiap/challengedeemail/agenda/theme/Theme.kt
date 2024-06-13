@@ -11,12 +11,12 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
-import br.com.fiap.challengedeemail.ui.theme.Pink40
-import br.com.fiap.challengedeemail.ui.theme.Pink80
-import br.com.fiap.challengedeemail.ui.theme.Purple40
-import br.com.fiap.challengedeemail.ui.theme.Purple80
-import br.com.fiap.challengedeemail.ui.theme.PurpleGrey40
-import br.com.fiap.challengedeemail.ui.theme.PurpleGrey80
+import br.com.fiap.challengedeemail.agenda.theme.Pink40
+import br.com.fiap.challengedeemail.agenda.theme.Pink80
+import br.com.fiap.challengedeemail.agenda.theme.Purple40
+import br.com.fiap.challengedeemail.agenda.theme.Purple80
+import br.com.fiap.challengedeemail.agenda.theme.PurpleGrey40
+import br.com.fiap.challengedeemail.agenda.theme.PurpleGrey80
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,

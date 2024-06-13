@@ -22,9 +22,9 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.fiap.challengedeemail.components.AnimatedBorderCard
-import br.com.fiap.challengedeemail.ui.theme.Blue200
-import br.com.fiap.challengedeemail.ui.theme.Blue500
-import br.com.fiap.challengedeemail.ui.theme.Blue900
+import br.com.fiap.challengedeemail.agenda.theme.Blue200
+import br.com.fiap.challengedeemail.agenda.theme.Blue500
+import br.com.fiap.challengedeemail.agenda.theme.Blue900
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -179,7 +179,7 @@ fun AnotacoesScreen(context: Context) {
             }
             Spacer(modifier = Modifier.padding(7.dp))
             Text(
-                text = "Inbox Overview",
+                text = "Meeting marker",
                 fontSize = 28.sp,
                 fontFamily = FontFamily.Monospace,
                 color = Color.White,

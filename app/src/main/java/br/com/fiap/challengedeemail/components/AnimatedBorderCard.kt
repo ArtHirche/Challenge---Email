@@ -20,9 +20,9 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import br.com.fiap.challengedeemail.ui.theme.Blue200
-import br.com.fiap.challengedeemail.ui.theme.Blue500
-import br.com.fiap.challengedeemail.ui.theme.Blue700
+import br.com.fiap.challengedeemail.agenda.theme.Blue200
+import br.com.fiap.challengedeemail.agenda.theme.Blue500
+import br.com.fiap.challengedeemail.agenda.theme.Blue700
 
 @Composable
 fun AnimatedBorderCard(
