@@ -5,4 +5,6 @@
     <string name="txt_remember_me">Lembre-se de mim</string>
     <string name="txt_forgot_password">Esqueceu a senha?</string>
     <string name="txt_button_login">LOGIN</string>
+    <string name="show_less">Show Less</string>
+    <string name="show_more">Show More</string>
 </resources>
