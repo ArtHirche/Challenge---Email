@@ -122,7 +122,7 @@ fun PreviewAnotacoesList() {
 }
 
 @Composable
-fun AnotacoesScreen(context: Context) {
+fun Calendar(context: Context) {
     // Estado para armazenar a nota da anotação
     val notaState = remember { mutableStateOf(TextFieldValue()) }
     // Estado para armazenar os e-mails
